@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: midimonster
   author: Spacelord09 / Leon Meier
   description: MIDIMonster Multi-protocol control & translation software.
 
