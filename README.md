@@ -13,6 +13,12 @@ ToDo
   - only_update_config mode. / Without rebuilding.
 
 
+Installation
+------------
+```
+ansible-galaxy install spacelord09.midimonster
+```
+
 Role Variables
 --------------
 
@@ -28,32 +34,34 @@ Role Variables
 
 Example Playbook with default variables
 ---------------------------------------
-
-    - name: Default MIDIMonster deployment.
-      gather_facts: false
-      hosts: all
-      roles:
-        - spacelord09.midimonster
+```
+- name: Default MIDIMonster deployment.
+  gather_facts: false
+  hosts: all
+  roles:
+    - spacelord09.midimonster
+```
 
 Example Playbook with customizations
 ------------------------------------
+```
+- name: Default MIDIMonster deployment.
+  gather_facts: false
+  hosts: all
+  tasks:
 
-    - name: Default MIDIMonster deployment.
-      gather_facts: false
-      hosts: all
-      tasks:
-    
-        - name: midimonster-deployment
-          include_role:
-            name: spacelord09.midimonster
-          vars:
-            - midimonster_version: "master" #Default: "master"
-            - midimonster_build_root: "/tmp/midimonster" #Default: "/tmp/midimonster"
-            - midimonster_prefix: "/usr" #Default: "usr"
-            - midimonster_plugins: "/lib/midimonster" #Default: "/lib/midimonster"
-            - midimonster_default_cfg: "/etc/midimonster/midimonster.cfg" #Default: "/etc/midimonster/midimonster.cfg"
-            - midimonster_example_cfg: "/share/midimonster" #Default: "/share/midimonster"
-            - midimonster_create_systemd_unit: true #Default: true
+    - name: midimonster-deployment
+      include_role:
+        name: spacelord09.midimonster
+      vars:
+        - midimonster_version: "master" #Default: "master"
+        - midimonster_build_root: "/tmp/midimonster" #Default: "/tmp/midimonster"
+        - midimonster_prefix: "/usr" #Default: "usr"
+        - midimonster_plugins: "/lib/midimonster" #Default: "/lib/midimonster"
+        - midimonster_default_cfg: "/etc/midimonster/midimonster.cfg" #Default: "/etc/midimonster/midimonster.cfg"
+        - midimonster_example_cfg: "/share/midimonster" #Default: "/share/midimonster"
+        - midimonster_create_systemd_unit: true #Default: true
+```
 
 License
 -------
