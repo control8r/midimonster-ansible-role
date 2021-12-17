@@ -16,15 +16,15 @@ ToDo
 Role Variables
 --------------
 
-|             Variable            |  Example Value  |           Default Value          |                Description               |   |
-|:-------------------------------:|:---------------:|:--------------------------------:|:----------------------------------------:|:-:|
-|       midimonster_version       |       v0.6      |              master              |         The MIDIMonster version.         |   |
-|      midimonster_build_root     | /tmp/mybuilddir |         /tmp/midimonster         |     Temporary directory for building.    |   |
-|        midimonster_prefix       |        -        |               /usr               |       Install prefix for binaries.       |   |
-|       midimonster_plugins       |        -        |         /lib/midimonster         | Install path for backend shared objects. |   |
-|     midimonster_default_cfg     |        -        | /etc/midimonster/midimonster.cfg |        Default configuration file.       |   |
-|     midimonster_example_cfg     |        -        |        /share/midimonster        | Install path for example configurations. |   |
-| midimonster_create_systemd_unit |        -        |               true               |           Create systemd unit.           |   |
+|             Variable            |  Example Value  |           Default Value          |                Description               |
+|:-------------------------------:|:---------------:|:--------------------------------:|:----------------------------------------:|
+|       midimonster_version       |       v0.6      |              master              |         The MIDIMonster version.         |
+|      midimonster_build_root     | /tmp/mybuilddir |         /tmp/midimonster         |     Temporary directory for building.    |
+|        midimonster_prefix       |        -        |               /usr               |       Install prefix for binaries.       |
+|       midimonster_plugins       |        -        |         /lib/midimonster         | Install path for backend shared objects. |
+|     midimonster_default_cfg     |        -        | /etc/midimonster/midimonster.cfg |        Default configuration file.       |
+|     midimonster_example_cfg     |        -        |        /share/midimonster        | Install path for example configurations. |
+| midimonster_create_systemd_unit |        -        |               true               |           Create systemd unit.           |
 
 Example Playbook with default variables
 ---------------------------------------
