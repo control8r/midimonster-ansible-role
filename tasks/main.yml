@@ -1,0 +1,64 @@
+---
+# tasks file for midimonster
+
+- name: Install dependencies.
+  apt:
+    name: "{{ packages }}"
+    install_recommends: false
+    update_cache: true
+  vars:
+    packages:
+    - libasound2-dev
+    - libevdev-dev
+    - liblua5.3-dev
+    - libjack-jackd2-dev
+    - pkg-config
+    - libssl-dev
+    - python3-dev
+    - gcc
+    - make
+    - wget
+    - git
+
+- name: Checkout git repository.
+  git:
+    repo: "https://github.com/cbdevnet/midimonster.git"
+    dest: "{{ midimonster_build_root }}"
+    version: "{{ midimonster_version }}"
+    update: true
+
+- name: Build.
+  make:
+    chdir: "{{ midimonster_build_root }}"
+    target: all
+    params:
+      NUM_THREADS: 4
+      PREFIX: "{{ midimonster_prefix }}"
+      PLUGINS: "{{ midimonster_prefix }}{{ midimonster_plugins }}"
+      DEFAULT_CFG: "{{ midimonster_default_cfg }}"
+      EXAMPLES: "{{ midimonster_prefix }}{{ midimonster_example_cfg }}"
+
+- name: Install.
+  make:
+    chdir: "{{ midimonster_build_root }}"
+    target: install
+    params:
+      NUM_THREADS: 4
+      PREFIX: "{{ midimonster_prefix }}"
+      PLUGINS: "{{ midimonster_prefix }}{{ midimonster_plugins }}"
+      DEFAULT_CFG: "{{ midimonster_default_cfg }}"
+      EXAMPLES: "{{ midimonster_prefix }}{{ midimonster_example_cfg }}"
+
+- name: Delete git repository.
+  file:
+    state: absent
+    path: "{{ midimonster_build_root }}"
+
+- name: Create systemd Unit file
+  template:
+    src: "midimonster.service.j2"
+    dest: "/lib/systemd/system/midimonster.service"
+    mode: "644"
+  notify:
+    - reload systemctl
+  when: midimonster_create_systemd_unit == true

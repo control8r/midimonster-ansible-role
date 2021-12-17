@@ -1,0 +1,13 @@
+[Unit]
+Description=MIDIMonster Multi-protocol control & translation software.
+After=network.target
+
+[Service]
+ExecStart={{ midimonster_prefix }}/bin/midimonster
+
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=midimonster.service

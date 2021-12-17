@@ -1,0 +1,12 @@
+---
+# defaults file for midimonster
+
+midimonster_version: "master"
+midimonster_build_root: "/tmp/midimonster"
+
+midimonster_prefix: "/usr"
+midimonster_plugins: "/lib/midimonster"
+midimonster_default_cfg: "/etc/midimonster/midimonster.cfg"
+midimonster_example_cfg: "/share/midimonster"
+
+midimonster_create_systemd_unit: true
