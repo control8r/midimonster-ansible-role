@@ -33,7 +33,7 @@ Example Playbook with default variables
       gather_facts: false
       hosts: all
       roles:
-        - midimonster
+        - spacelord09.midimonster
 
 Example Playbook with customizations
 ------------------------------------
@@ -45,7 +45,7 @@ Example Playbook with customizations
     
         - name: midimonster-deployment
           include_role:
-            name: midimonster
+            name: spacelord09.midimonster
           vars:
             - midimonster_version: "master" #Default: "master"
             - midimonster_build_root: "/tmp/midimonster" #Default: "/tmp/midimonster"
